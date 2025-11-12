@@ -6,6 +6,7 @@ export default defineConfig({
     nav: [
       { title: '指南', link: '/guides/commit-message-standard' },
       { title: 'CLI 使用', link: '/docs/cli/usage' },
+      { title: '模板参考', link: '/docs/templates/overview' },
     ],
   },
   locales: [
