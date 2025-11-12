@@ -8,7 +8,7 @@ AI Rules 是一个聚合 AI 协作规范与工具的公共仓库，提供提交�
 
 ## 快速开始
 
-1. 阅读「提交规范」了解 `<type>:<emoji> <subject>` 规则与 gitmoji 映射。  
+1. 阅读「[提交规范](/guides/commit-message-standard)」了解 `<type>:<emoji> <subject>` 规则与 gitmoji 映射。  
 2. 访问「CLI 使用」，使用 `airules` 命令将模板写入目标项目：  
    ```bash
    yarn add -D ai-rules-cli
