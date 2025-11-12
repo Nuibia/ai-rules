@@ -1,3 +1,5 @@
 node_modules
 .dumi
 dist
+packages/cli/templates
+packages/cli/dist
