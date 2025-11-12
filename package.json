@@ -1,0 +1,19 @@
+{
+  "name": "ai-rules",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI 协作规范与工具的公共收集地，提供提交信息模板、AI 指令与文档站点。",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "docs:dev": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:preview": "dumi preview"
+  },
+  "devDependencies": {
+    "dumi": "latest",
+    "typescript": "^5.6.3"
+  }
+}
+

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "moduleDetection": "force"
+  },
+  "include": [
+    "dumi.config.ts",
+    "docs/**/*.md",
+    "guides/**/*.md",
+    "templates/**/*.md",
+    "templates/**/*.cjs",
+    "packages/**/*.ts"
+  ]
+}
+
