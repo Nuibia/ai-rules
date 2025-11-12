@@ -1,5 +1,5 @@
 {
-  "name": "ai-rules-cli",
+  "name": "jn-ai-rules-cli",
   "version": "0.1.0",
   "description": "将 AI 协作规范模板一键写入任意项目的命令行工具。",
   "bin": {
