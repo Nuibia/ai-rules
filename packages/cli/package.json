@@ -1,6 +1,6 @@
 {
   "name": "jn-ai-rules-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "将 AI 协作规范模板一键写入任意项目的命令行工具。",
   "bin": {
     "airules": "dist/index.js"
