@@ -46,7 +46,9 @@ async function ensureTemplateRoot(): Promise<string> {
   const candidatePaths = [
     path.resolve(__dirname, '../templates'),
     path.resolve(__dirname, '../../templates'),
+    path.resolve(__dirname, '../../../rules'),
     path.resolve(process.cwd(), 'templates'),
+    path.resolve(process.cwd(), 'rules'),
   ];
 
   for (const candidate of candidatePaths) {
@@ -60,7 +62,7 @@ async function ensureTemplateRoot(): Promise<string> {
     }
   }
 
-  throw new Error('未找到模板目录，请确认已执行构建或复制 templates 资源。');
+  throw new Error('未找到模板目录，请确认已执行构建或同步 rules 模板资源。');
 }
 
 async function pathExists(filePath: string): Promise<boolean> {

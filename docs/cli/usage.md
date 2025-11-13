@@ -49,7 +49,7 @@ npx airules apply commitlint --force
 执行 `airules list` 将输出类似结果：
 
 ```text
-模板目录：/path/to/ai-rules-cli/templates
+模板目录：/path/to/ai-rules-cli/templates（构建产物，源文件位于仓库根目录 rules/）
 commitlint → commitlint.config.cjs
   commitlint 提交信息校验配置
 cursor-guidelines → .cursor/rules/commit-guidelines.md
@@ -69,5 +69,5 @@ claude-guidelines → .claude/commit-guidelines.md
 3. **模板更新后怎么办？**  
    - 在公共仓库更新模板后，执行 `yarn workspace ai-rules-cli build`，再在目标项目运行 `airules init --force` 或 `airules apply <templateId> --force` 进行同步。
 
-如需查看模板详情，可前往「模板说明」章节或直接浏览 `templates/` 目录。
+如需查看模板详情，可前往「模板说明」章节或直接浏览 `rules/` 目录。
 

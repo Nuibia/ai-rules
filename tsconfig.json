@@ -15,8 +15,8 @@
     "dumi.config.ts",
     "docs/**/*.md",
     "guides/**/*.md",
-    "templates/**/*.md",
-    "templates/**/*.cjs",
+    "rules/**/*.md",
+    "rules/**/*.cjs",
     "packages/**/*.ts"
   ]
 }

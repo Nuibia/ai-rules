@@ -27,6 +27,7 @@ npx airules apply commitlint --force  # 单独应用 commitlint 配置并覆盖
 
 ## 维护策略
 
-- 模板内容维护在仓库根目录 `templates/` 下，更新后需要重新执行 `yarn workspace ai-rules-cli build` 以同步至 CLI 包。  
+- 模板源文件统一维护在仓库根目录 `rules/` 下，执行 `yarn workspace ai-rules-cli build` 会自动同步到 `packages/cli/templates/`，发布包将携带该目录。  
+- 若仅需校验同步结果，可运行 `yarn workspace ai-rules-cli templates:check`。  
 - 若你扩展了新的模板（例如针对其他 AI 助手），请补充文档说明并提交 PR。
 
