@@ -28,7 +28,8 @@ yarn add -D ai-rules-cli
 
 - `airules list`：列出可用模板、目标路径与描述。  
 - `airules init [target]`：批量写入全部模板，支持 `--force` 覆盖已存在文件。  
-- `airules apply <templateId> [target]`：按模板 ID 写入单个文件或目录，适合增量引入。  
+- `airules apply <templateId> [target]`：按模板 ID 写入单个文件或目录，支持旧 ID 自动兼容。  
+- `airules cursor|claude|commitlint [target]`：快捷写入常用模板，等价于 `apply <模板ID>`。  
 - `airules update [target]`：规划中的功能，用于对比并更新已存在的模板文件（尚未实现）。
 
 > 所有命令默认以当前工作目录为目标路径，可通过参数传入自定义目录。
@@ -52,11 +53,13 @@ npx airules apply commitlint --force
 模板目录：/path/to/ai-rules-cli/templates（构建产物，源文件位于仓库根目录 rules/）
 commitlint → commitlint.config.cjs
   commitlint 提交信息校验配置
-cursor-guidelines → .cursor/rules/commit-guidelines.md
+cursor（别名：cursor-guidelines） → .cursor/rules/commit-guidelines.md
   Cursor AI 指令模板
-claude-guidelines → .claude/commit-guidelines.md
+claude（别名：claude-guidelines） → .claude/commit-guidelines.md
   Claude AI 指令模板，可按需嵌入配置文件
 ```
+
+> 当写入 `claude`（旧 ID `claude-guidelines`）时，CLI 会自动创建或更新 `.claude/CLAUDE.md`，并追加 `@import "./commit-guidelines.md"`，便于 Claude Code 直接加载项目规则。
 
 ## 常见问题
 
@@ -68,6 +71,12 @@ claude-guidelines → .claude/commit-guidelines.md
 
 3. **模板更新后怎么办？**  
    - 在公共仓库更新模板后，执行 `yarn workspace ai-rules-cli build`，再在目标项目运行 `airules init --force` 或 `airules apply <templateId> --force` 进行同步。
+
+4. **为何命令里使用旧 ID 还会生效？**  
+   - CLI 会提示“模板 \<旧ID\> 已重命名为 \<新ID\>”，并继续执行，便于平滑迁移；建议尽快改用 `cursor`、`claude` 等新名称。
+
+5. **Claude Code 为什么能立刻识别规则？**  
+   - CLI 会在写入 `.claude/commit-guidelines.md` 后同步更新 `.claude/CLAUDE.md`，确保其中包含 `@import "./commit-guidelines.md"`。若此前已有自定义内容，只会追加 import，不会覆盖原文。
 
 如需查看模板详情，可前往「模板说明」章节或直接浏览 `rules/` 目录。
 

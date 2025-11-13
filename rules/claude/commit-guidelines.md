@@ -2,6 +2,8 @@
 
 本文件面向 Claude AI 助手，提供跨项目通用的提交信息与协作约束。请将本内容同步到目标项目的 `.claude.json` 或其他规则配置中。
 
+> 使用 `airules` CLI 写入本模板时，会自动在 `.claude/CLAUDE.md` 中追加 `@import "./commit-guidelines.md"`，便于 Claude Code 直接加载；你仍可在该文件中继续追加自定义指令。
+
 ## 提交信息格式
 
 - 标题必须符合 `类型:emoji 空格 标题` 结构，示例：`feat:✨ 新增订单中心页面`。  

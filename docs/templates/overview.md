@@ -12,8 +12,8 @@ order: 1
 | 模板 ID | 目标路径 | 说明 |
 | --- | --- | --- |
 | `commitlint` | `commitlint.config.cjs` | commitlint 配置，包含 gitmoji 类型枚举与校验规则 |
-| `cursor-guidelines` | `.cursor/rules/commit-guidelines.md` | Cursor AI 指令，指导助手遵循提交规范与协作流程 |
-| `claude-guidelines` | `.claude/commit-guidelines.md` | Claude AI 指令，与 Cursor 模板语义一致 |
+| `cursor`（兼容旧 ID `cursor-guidelines`） | `.cursor/rules/commit-guidelines.md` | Cursor AI 指令，指导助手遵循提交规范与协作流程 |
+| `claude`（兼容旧 ID `claude-guidelines`） | `.claude/commit-guidelines.md` | Claude AI 指令，与 Cursor 模板语义一致 |
 
 在 CLI 中使用 `airules list` 可以查看最新模板目录，或使用 `airules apply <模板ID>` 单独写入某个模板。
 
@@ -29,5 +29,6 @@ npx airules apply commitlint --force  # 单独应用 commitlint 配置并覆盖
 
 - 模板源文件统一维护在仓库根目录 `rules/` 下，执行 `yarn workspace ai-rules-cli build` 会自动同步到 `packages/cli/templates/`，发布包将携带该目录。  
 - 若仅需校验同步结果，可运行 `yarn workspace ai-rules-cli templates:check`。  
+- 当写入 `claude`（旧 ID `claude-guidelines`）时，CLI 会自动创建或补充 `.claude/CLAUDE.md` 并追加 `@import "./commit-guidelines.md"`，无需手动配置 Claude Code 导入规则。  
 - 若你扩展了新的模板（例如针对其他 AI 助手），请补充文档说明并提交 PR。
 
